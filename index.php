@@ -10,14 +10,7 @@
     <?php
         include "config.php";
         include "connect.php";
-
-        if($QUERY_METHOD=="PDO"){
-            include "pdo_query.php";
-        }
-        if($QUERY_METHOD=="MySQLi"){
-            include "MySQLi_query.php";
-            //echo "The default request is MySQLi";
-        }   
+        include "query.php";
     ?>
 </body>
 </html>

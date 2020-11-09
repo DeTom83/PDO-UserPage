@@ -19,7 +19,7 @@
 	}
 
 //----------------------------------------------------------------------------------------------------------------	
-	if($QUERY_METHOD=="MySQLi"){
+	else if($QUERY_METHOD=="MySQLi"){
 		//Conncetion to DB with mysqli
 		
 		$mysqli = new mysqli($DB_HOST, $DB_USERNAME, $DB_PASSWORD, $DB_DATABASE);
@@ -49,8 +49,8 @@
 		
 		//Optional Close the connection
 		//mysqli_close($mysqli);
-	}
-
-	
-	
+	}else{
+			echo 'Please check the config.php file: $QUERY_METHOD.'."<br>";
+			die();
+    }
 ?>

@@ -19,7 +19,7 @@
     //Read the data in DB
     $result = $connection->query("SELECT * FROM $DB_TABLE");
     if($result->rowCount()){
-        While($data = $result->fetch(PDO::FETCH_ASSOC)){//Soronkénti feldolgozás
+        While($data = $result->fetch(PDO::FETCH_NUM)){//Soronkénti feldolgozás
             //https://www.php.net/manual/en/pdostatement.fetch.php
             echo "<TR>";
                 foreach($data as $value){
