@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="css/style2.css">
+
+</head>
+<body> 
+    <header>
+        <h1>Registration Form</h1>
+    </header>
+    <div class="reg-wapper">
+        <div class="reg-input-fields"> 
+            <form action="registration.php" method="POST">
+                <input type="text" class="reg-input" value="Kiss"   name="fname"   placeholder="First Name"><br>
+                <input type="text" class="reg-input" value="Miska"  name="lname"   placeholder="Last Name"><br>
+                <input type="text" class="reg-input" value="10"     name="age"     placeholder="Age"><br>
+                <input type="text" class="reg-input" value="none"   name="email"   placeholder="Email"><br>
+                <input type="text" class="reg-input" value="none"   name="website" placeholder="Website"><br>
+                <textarea name="comment" class="reg-input" rows="5" cols="40" placeholder="Comment"></textarea><br>
+                <input class="reg-btn" type="submit" value="Submit" name="btn"><input value="Cancel" type="reset">
+            </form>
+        </div>
+    </div>
+        
+</body>
+</html> 
