@@ -13,36 +13,55 @@
     </header>
 
 <?php
-// define variables and set to empty values
-$first_name = $last_name = $age = $email = $comment = $website = "";
+
+Class User{
+    public $first_name;
+    public $last_name;
+    public $email;
+    public $website;
+    public $comment;
+    public $age;
+
+    public function __construct($array){
+        $this->first_name = $this->test_input($array['fname']);
+        $this->last_name = $this->test_input($array['lname']);
+        $this->email = $this->test_input($array['email']);
+        $this->website = $this->test_input($array['website']);
+        $this->comment = $this->test_input($array['comment']);
+        $this->age = $this->test_input($array['age']);    
+    }
+
+    public function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    public function getUser(){
+        echo "<div class='reg-wapper'>".
+        "<div class='reg-input-fields'> ".
+        "The Transfer data is this: <br/>".
+        "----------------------------<br>".
+        "First Name: ".$this->first_name."<br />".
+        "Last Name: ".$this->last_name."<br />".
+        "Email: ".$this->email."<br />".
+        "Age: ".$this->age."<br />".
+        "Website: ".$this->website."<br />".
+        "Comment: ".$this->comment."<br />".
+        "</div></div>"; 
+    }
+}
+
+
 
 //if ($_SERVER["REQUEST_METHOD"] == "POST") 
 if (isset($_POST['btn'])){
-    $first_name = test_input($_POST['fname']);
-    $last_name = test_input($_POST['lname']);
-    $email = test_input($_POST['email']);
-    $website = test_input($_POST['website']);
-    $comment = test_input($_POST['comment']);
-    $age = test_input($_POST['age']);
-    echo "<div class='reg-wapper'>
-        <div class='reg-input-fields'> ";
-    echo "The Transfer data is this: <br/>";
-    echo "----------------------------<br>";
-    echo "First Name: ".$first_name."<br />";
-    echo "Last Name: ".$last_name."<br />";
-    echo "Email: ".$email."<br />";
-    echo "Age: ".$age."<br />";
-    echo "Website: ".$website."<br />";
-    echo "Comment: ".$comment."<br />";
-    echo "</div></div>";
+    $user = new User($_POST);
+    $user->getUser();
 }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+
 ?>
 </body>
 </html> 
